@@ -34,15 +34,7 @@ public class TitleAirplaneController : MonoBehaviour
 
     {
 
-
-
-        // 上を向けば上昇、下を向けば下降
-
         transform.position += Vector3.up * transform.forward.y * climbSpeed * Time.deltaTime;
-
-
-
-        // ピッチ
 
         float pitch = 0f;
 

@@ -22,10 +22,8 @@ public class 揺れる : MonoBehaviour
     {
         float wave = Mathf.Sin(Time.time * 0.25f) * 2f + Mathf.Sin(Time.time * 0.57f) * 0.5f;
 
-        // 上下移動
         transform.position = startPos + Vector3.up * wave;
 
-        // 少しだけ機首も上下させる
         transform.rotation = startRot * Quaternion.Euler(wave * pitchAngle, 0f, 0f);
     }
 }

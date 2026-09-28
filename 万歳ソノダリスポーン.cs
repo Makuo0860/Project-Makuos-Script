@@ -32,13 +32,11 @@ public class 万歳ソノダリスポーン: MonoBehaviour
     {
         while (true)
         {
-            // ランダム時間待つ
             yield return new WaitForSeconds(
                 Random.Range(minAppearTime, maxAppearTime));
 
             enemy.SetActive(true);
 
-            // ランダム時間表示
             yield return new WaitForSeconds(
                 Random.Range(minStayTime, maxStayTime));
 

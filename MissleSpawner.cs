@@ -82,14 +82,12 @@ public class MissleSpawner : MonoBehaviour
     {
         isSpawning = true;
 
-        // ç∂Ç©ÇÁî≠éÀ
         HomingMissile leftMissile =
             Instantiate(prefab, leftMuzzle.position, leftMuzzle.rotation)
             .GetComponent<HomingMissile>();
 
         leftMissile.Target = lockOn.currentTarget;
 
-        // âEÇ©ÇÁî≠éÀ
         HomingMissile rightMissile =
             Instantiate(prefab, rightMuzzle.position, rightMuzzle.rotation)
             .GetComponent<HomingMissile>();

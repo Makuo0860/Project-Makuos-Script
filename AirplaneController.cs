@@ -39,9 +39,6 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        //------------------------
-        // ブースト
-        //------------------------
 
         float targetSpeed = minSpeed;
 
@@ -50,16 +47,10 @@ public class AirplaneController : MonoBehaviour
         {
             targetSpeed = maxSpeed;
         }
-
-        // 徐々に目標速度へ近づく
         currentSpeed = Mathf.MoveTowards(
             currentSpeed,
             targetSpeed,
             acceleration * Time.deltaTime);
-
-        //------------------------
-        // ピッチ
-        //------------------------
 
         float pitch = 0f;
 
@@ -68,10 +59,6 @@ public class AirplaneController : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
             pitch = -1f;
 
-        //------------------------
-        // ロール
-        //------------------------
-
         float roll = 0f;
 
         if (Input.GetKey(KeyCode.A))
@@ -79,20 +66,12 @@ public class AirplaneController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
             roll = -1f;
 
-        //------------------------
-        // ヨー
-        //------------------------
-
         float yaw = 0f;
 
         if (Input.GetKey(KeyCode.Q))
             yaw = -1f;
         else if (Input.GetKey(KeyCode.E))
             yaw = 1f;
-
-        //------------------------
-        // 機体回転
-        //------------------------
 
         transform.Rotate(
             pitch * pitchSpeed * Time.deltaTime,
@@ -108,23 +87,12 @@ public class AirplaneController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //------------------------
-        // 前進
-        //------------------------
 
         rb.linearVelocity = transform.forward * currentSpeed;
-
-        //------------------------
-        // 揚力
-        //------------------------
 
         rb.AddForce(
             transform.up * currentSpeed * liftPower,
             ForceMode.Force);
-
-        //------------------------
-        // 抗力
-        //------------------------
 
         rb.AddForce(
             -rb.linearVelocity * drag,

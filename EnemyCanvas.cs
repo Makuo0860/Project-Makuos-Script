@@ -22,18 +22,13 @@ public class EnemyCanvas : MonoBehaviour
 
     IEnumerator ShowCanvas()
     {
-        // š–‹•\¦
         canvas.SetActive(true);
-
-        // š–‹‚Æ“¯‚ÉŒø‰Ê‰¹‚ğÄ¶
         if (subtitleSE != null)
         {
             audioSource.PlayOneShot(subtitleSE);
         }
 
         yield return new WaitForSeconds(displayTime);
-
-        // š–‹‚ğ”ñ•\¦
         canvas.SetActive(false);
     }
 }
